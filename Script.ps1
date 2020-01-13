@@ -20,19 +20,23 @@ Try {
     #receive new remote path
     $Confirm=""
     Do {
-        $AdditionalRemote=Read-Host "Additional remote path"
+        $AdditionalRemote=Read-Host "Additional remote path (no need to modify slash direction)"
         $Confirm=Read-Host "Additional remote path will be `"$($AdditionalRemote)`". Is that correct (y/n)?"
     }
     Until ($Confirm -eq "y")
 
+    #reverse slash direction (it appears to work fine with backwards slashes as well as forward, but use forward slashes to keep things consistent)
+    $AdditionalRemote=$AdditionalRemote.Replace("\","/")
+
     git remote set-url --add --push origin $OriginalRemote
     git remote set-url --add --push origin $AdditionalRemote
+
+    git remote show origin
 
 }
 
 Catch {
 
     Write-Host $Error[0]
-    Pause
     
 }
