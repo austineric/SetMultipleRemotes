@@ -29,6 +29,7 @@ Try {
     $AdditionalRemote=$AdditionalRemote.Replace("\","/")
 
     #this handles paths with spaces without any special handling
+    #note that both remotes have to be set at the same time for some reason
     git remote set-url --add --push origin $OriginalRemote
     git remote set-url --add --push origin $AdditionalRemote
 
