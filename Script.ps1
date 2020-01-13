@@ -28,6 +28,7 @@ Try {
     #reverse slash direction (it appears to work fine with backwards slashes as well as forward, but use forward slashes to keep things consistent)
     $AdditionalRemote=$AdditionalRemote.Replace("\","/")
 
+    #this handles paths with spaces without any special handling
     git remote set-url --add --push origin $OriginalRemote
     git remote set-url --add --push origin $AdditionalRemote
 
