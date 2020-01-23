@@ -1,2 +1,2 @@
-pwsh.exe -file .\Script.ps1
+pwsh.exe -file .\SetMultipleRemotesScript.ps1
 Pause
